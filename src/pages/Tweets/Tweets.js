@@ -34,7 +34,7 @@ const Tweets = () => {
     };
 
     getUsers({ page: pageNumber, per_page: PER_PAGE, value: type });
-  }, [pageNumber, type]);
+  }, [pageNumber, type, users]);
 
   const handleLoadMore = () => {
     setPageNumber(pageNumber + 1);
