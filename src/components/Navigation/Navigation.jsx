@@ -1,15 +1,15 @@
-import { StyledLink } from './Navigation.styles';
+import { List, Item, StyledLink } from './Navigation.styles';
 
 const Navigation = () => {
   return (
-    <ul>
-      <li>
+    <List>
+      <Item>
         <StyledLink to="/">HOME</StyledLink>
-      </li>
-      <li>
+      </Item>
+      <Item>
         <StyledLink to="/tweets">TWEETS</StyledLink>
-      </li>
-    </ul>
+      </Item>
+    </List>
   );
 };
 

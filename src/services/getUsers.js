@@ -11,9 +11,6 @@ export const getAllUsers = async (page, per_page, value) => {
           return data;
         });
     }
-    // return await axios.get(`tweets/?followed=${filter}`).then(({ data }) => {
-    //   return data;
-    // });
   } catch (err) {
     console.log(err);
   }

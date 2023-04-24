@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { getAllUsers } from '../../services/getUsers';
 import { Button } from '../../components/Button/Button';
+import { Loader } from '../../components/Loader/Loader';
 
 import { List } from './Tweets.styled';
 
@@ -10,7 +11,7 @@ import { TweetCard } from '../../components/TweetCard/TweetCard';
 
 const Tweets = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(false);
+  const [showBtn, setShowBtn] = useState(false);
   const [users, setUsers] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [type] = useState('');
@@ -21,9 +22,7 @@ const Tweets = () => {
       try {
         setIsLoading(true);
         return await getAllUsers(page, per_page, value).then(data => {
-          data.length >= PER_PAGE
-            ? setShowLoadMoreBtn(true)
-            : setShowLoadMoreBtn(false);
+          data.length >= PER_PAGE ? setShowBtn(true) : setShowBtn(false);
           setUsers([...users, ...data]);
         });
       } catch (err) {
@@ -34,7 +33,8 @@ const Tweets = () => {
     };
 
     getUsers({ page: pageNumber, per_page: PER_PAGE, value: type });
-  }, [pageNumber, type, users]);
+    // eslint-disable-next-line
+  }, [pageNumber, type]);
 
   const handleLoadMore = () => {
     setPageNumber(pageNumber + 1);
@@ -43,8 +43,10 @@ const Tweets = () => {
   return (
     <>
       <div>
-        {isLoading && <div>Loading</div>}
-        <Link to="/">Back</Link>
+        {isLoading && <Loader />}
+        <Link to="/">
+          <Button text="Back" />
+        </Link>
         <List>
           {users.length > 0 &&
             users.map(({ id, user, avatar, followers, tweets, followed }) => (
@@ -58,9 +60,7 @@ const Tweets = () => {
                 followed={followed}
               />
             ))}
-          {showLoadMoreBtn && (
-            <Button text="Load more" onClick={handleLoadMore} />
-          )}
+          {showBtn && <Button text="Load more" onClick={handleLoadMore} />}
         </List>
       </div>
     </>
