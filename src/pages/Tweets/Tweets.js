@@ -5,7 +5,7 @@ import { getAllUsers } from '../../services/getUsers';
 import { Button } from '../../components/Button/Button';
 import { Loader } from '../../components/Loader/Loader';
 
-import { List } from './Tweets.styled';
+import { List, BtnContainer } from './Tweets.styled';
 
 import { TweetCard } from '../../components/TweetCard/TweetCard';
 
@@ -42,27 +42,27 @@ const Tweets = () => {
 
   return (
     <>
-      <div>
-        {isLoading && <Loader />}
-        <Link to="/">
-          <Button text="Back" />
-        </Link>
-        <List>
-          {users.length > 0 &&
-            users.map(({ id, user, avatar, followers, tweets, followed }) => (
-              <TweetCard
-                key={id}
-                id={id}
-                tweets={tweets}
-                followers={followers}
-                user={user}
-                avatar={avatar}
-                followed={followed}
-              />
-            ))}
-          {showBtn && <Button text="Load more" onClick={handleLoadMore} />}
-        </List>
-      </div>
+      {isLoading && <Loader />}
+      <Link to="/">
+        <Button text="Back" />
+      </Link>
+      <List>
+        {users.length > 0 &&
+          users.map(({ id, user, avatar, followers, tweets, followed }) => (
+            <TweetCard
+              key={id}
+              id={id}
+              tweets={tweets}
+              followers={followers}
+              user={user}
+              avatar={avatar}
+              followed={followed}
+            />
+          ))}
+      </List>
+      <BtnContainer>
+        {showBtn && <Button text="Load more" onClick={handleLoadMore} />}
+      </BtnContainer>
     </>
   );
 };

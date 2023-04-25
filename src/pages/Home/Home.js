@@ -1,5 +1,11 @@
+import { TextContainer, Text } from './Home.styled';
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <TextContainer>
+      <Text>CHOOSE A TWEET TO FOLLOW</Text>
+    </TextContainer>
+  );
 };
 
 export default Home;

@@ -5,7 +5,7 @@ import * as goitLogo from '../../images/goit.svg';
 export const ItemContainer = styled.li`
   position: relative;
   width: 380px;
-  height: 460px;
+  height: 300px;
   padding-top: 178px;
   list-style-type: none;
   background-image: ${`url(${goitLogo.default})`}, ${`url(${bgLogo.default})`},
