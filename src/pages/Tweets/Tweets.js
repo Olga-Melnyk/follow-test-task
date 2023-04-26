@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { getAllUsers } from '../../services/getUsers';
 import { Button } from '../../components/Button/Button';
 import { Loader } from '../../components/Loader/Loader';
+import { TweetCard } from '../../components/TweetCard/TweetCard';
+import { getAllUsers } from '../../services/getUsers';
 
 import { List, BtnContainer } from './Tweets.styled';
-
-import { TweetCard } from '../../components/TweetCard/TweetCard';
 
 const Tweets = () => {
   const [isLoading, setIsLoading] = useState(false);

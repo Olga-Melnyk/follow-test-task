@@ -3,7 +3,14 @@ import { useState } from 'react';
 import { Button } from '../Button/Button';
 import { updateUserData } from '../../services/getUsers';
 
-import { ItemContainer, ImgContainer, ImgBox, Text } from './TweetCard.styled';
+import {
+  ItemContainer,
+  CardContainer,
+  ImgContainer,
+  ImgBox,
+  Text,
+} from './TweetCard.styled';
+
 import * as userBoy from '../../images/boy.png';
 
 export const TweetCard = ({
@@ -43,23 +50,25 @@ export const TweetCard = ({
 
   return (
     <ItemContainer key={id}>
-      <ImgContainer>
-        <ImgBox>
-          <img
-            src={avatar ?? userBoy.default}
-            alt="User"
-            width={62}
-            height={62}
-          ></img>
-        </ImgBox>
-      </ImgContainer>
-      <Text>{tweets} TWEETS</Text>
-      <Text>{followersCount.toLocaleString('en-US')} FOLLOWERS</Text>
-      <Button
-        text={selection ? 'Following' : 'Follow'}
-        onClick={handleBtnClick}
-        selected={selection}
-      />
+      <CardContainer>
+        <ImgContainer>
+          <ImgBox>
+            <img
+              src={avatar ?? userBoy.default}
+              alt="User"
+              width={62}
+              height={62}
+            ></img>
+          </ImgBox>
+        </ImgContainer>
+        <Text>{tweets} TWEETS</Text>
+        <Text>{followersCount.toLocaleString('en-US')} FOLLOWERS</Text>
+        <Button
+          text={selection ? 'Following' : 'Follow'}
+          onClick={handleBtnClick}
+          selected={selection}
+        />
+      </CardContainer>
     </ItemContainer>
   );
 };

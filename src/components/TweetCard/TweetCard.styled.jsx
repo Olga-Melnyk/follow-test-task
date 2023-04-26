@@ -1,12 +1,12 @@
 import styled from 'styled-components';
+
 import * as bgLogo from '../../images/bg.png';
 import * as goitLogo from '../../images/goit.svg';
 
 export const ItemContainer = styled.li`
   position: relative;
   width: 380px;
-  height: 300px;
-  padding-top: 178px;
+  height: 460px;
   list-style-type: none;
   background-image: ${`url(${goitLogo.default})`}, ${`url(${bgLogo.default})`},
     linear-gradient(114.99deg, #471ca9 -0.99%, #5736a3 54.28%, #4b2a99 78.99%);
@@ -28,6 +28,11 @@ export const ItemContainer = styled.li`
       inset 0px -1.71846px 3.43693px #ae7be3,
       inset 0px 3.43693px 2.5777px #fbf8ff;
   }
+`;
+
+export const CardContainer = styled.div`
+  position: relative;
+  padding-top: 178px;
 `;
 
 export const ImgContainer = styled.div`

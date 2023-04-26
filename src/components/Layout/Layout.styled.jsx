@@ -15,5 +15,4 @@ export const Main = styled.main`
   height: 100%;
   padding: 16px 16px 32px 16px;
   margin: 0 auto;
-  /* background-color: #766a92; */
 `;

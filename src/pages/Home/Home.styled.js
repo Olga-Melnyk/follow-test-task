@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const TextContainer = styled.div`
-  /* position: relative; */
   padding: 30vh 30vw;
-  /* z-index: 2; */
 `;
 
 export const Text = styled.p`
